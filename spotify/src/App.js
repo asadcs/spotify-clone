@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 // https://github.com/yarinek/spotify-clone/tree/main/src
+//https://github.com/Raphjacksun7/spotify-clone-client
+//https://github.com/JL978/spotify-clone-client
 function App() {
   return (
     <div className="App">
