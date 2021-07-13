@@ -15,7 +15,7 @@ const spotify = new SpotifyWebApi();
 
 function App() {
   const [token1, setToken1] = useState(null);
-  const [{ user, token }, dispatch] = useDataLayerValue();
+  const [{ user, token, playlists }, dispatch] = useDataLayerValue();
 
   useEffect(() => {
     const hash = getTokenFromUrl();
@@ -29,6 +29,10 @@ function App() {
       spotify.setAccessToken(_token);
       spotify.getMe().then((user) => {
         dispatch({ type: "SET_USER", user: user });
+      });
+
+      spotify.getUserPlaylists().then((playlist) => {
+        dispatch({ type: "SET_PLAYLISTS", playlists: playlists });
       });
     }
     console.log("I have a TOKEN", hash);
